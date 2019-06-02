@@ -5,7 +5,7 @@
  */
 package Vistas;
 
-import jpl.Consultas;
+import jpl.Prolog;
 
 /**
  *
@@ -16,10 +16,12 @@ public class index extends javax.swing.JFrame {
     /**
      * Creates new form index
      */
-    Consultas cons;
-    public index(Consultas cons) {
-        this.cons = cons;
+    
+    Prolog prolog;
+    
+    public index(Prolog prolog) {
         initComponents();
+        this.prolog = prolog;
     }
 
     public index() {
@@ -52,6 +54,11 @@ public class index extends javax.swing.JFrame {
         });
 
         jbtnRegistrar.setText("Registrar");
+        jbtnRegistrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtnRegistrarActionPerformed(evt);
+            }
+        });
 
         jlbTitle.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jlbTitle.setText("Tinder De Jotos");
@@ -87,8 +94,19 @@ public class index extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbtnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnConsultarActionPerformed
-        this.cons.consultar();
+        this.dispose();
+        Consultas cons = new Consultas(prolog);
+        cons.setLocationRelativeTo(null);
+        cons.setVisible(true);
+        
     }//GEN-LAST:event_jbtnConsultarActionPerformed
+
+    private void jbtnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnRegistrarActionPerformed
+        this.dispose();
+        Registro reg = new Registro(prolog);
+        reg.setLocationRelativeTo(null);
+        reg.setVisible(true);
+    }//GEN-LAST:event_jbtnRegistrarActionPerformed
 
     /**
      * @param args the command line arguments

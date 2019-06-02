@@ -17,11 +17,9 @@ import org.jpl7.Term;
 public class Main {
 
     public static void main(String argv[]) {
-        Consultas cons = new Consultas();
-       index menu = new index(cons);
+       Prolog prolog = new Prolog();
+       index menu = new index(prolog);
        menu.setLocationRelativeTo(null);
        menu.setVisible(true);
     }
-    
-    
 }
