@@ -52,6 +52,10 @@ public class Consultas extends javax.swing.JFrame {
         jlbResMujer = new javax.swing.JLabel();
         jlbResPorcentaje = new javax.swing.JLabel();
         jlbP = new javax.swing.JLabel();
+        jlbSexo = new javax.swing.JLabel();
+        jcbSexo = new javax.swing.JComboBox<>();
+        jlbPersona = new javax.swing.JLabel();
+        jtfPersona = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Tinder Para Jotos - Consultas");
@@ -89,6 +93,12 @@ public class Consultas extends javax.swing.JFrame {
 
         jlbP.setText("%");
 
+        jlbSexo.setText("Sexo:");
+
+        jcbSexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Hombre", "Mujer" }));
+
+        jlbPersona.setText("Persona:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -100,17 +110,28 @@ public class Consultas extends javax.swing.JFrame {
                         .addComponent(jbtnAtras))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(137, 137, 137)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jlbTitle)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jlbPorcentajeMax)
-                                .addGap(18, 18, 18)
-                                .addComponent(jcbPorcentaje, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jlbP)
-                                .addGap(4, 4, 4)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jbtnConsultar)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jlbTitle)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jlbPorcentajeMax)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jcbPorcentaje, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jlbP)
+                                        .addGap(4, 4, 4)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jbtnConsultar))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(17, 17, 17)
+                                .addComponent(jlbSexo)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jcbSexo, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(48, 48, 48)
+                                .addComponent(jlbPersona)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jtfPersona, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(59, Short.MAX_VALUE)
@@ -142,7 +163,13 @@ public class Consultas extends javax.swing.JFrame {
                 .addComponent(jbtnAtras)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jlbTitle)
-                .addGap(62, 62, 62)
+                .addGap(27, 27, 27)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jlbSexo)
+                    .addComponent(jcbSexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jlbPersona)
+                    .addComponent(jtfPersona, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jlbPorcentajeMax)
                     .addComponent(jcbPorcentaje, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -164,7 +191,7 @@ public class Consultas extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jlbPorcentaje)
                     .addComponent(jlbResPorcentaje))
-                .addContainerGap(45, Short.MAX_VALUE))
+                .addContainerGap(42, Short.MAX_VALUE))
         );
 
         pack();
@@ -179,9 +206,22 @@ public class Consultas extends javax.swing.JFrame {
 
     private void jbtnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnConsultarActionPerformed
         String porc = jcbPorcentaje.getSelectedItem().toString();
-        prolog.consultar(porc);
-        jlbResHombre.setText(prolog.h);
-        jlbResMujer.setText(prolog.m);
+        String per = jtfPersona.getText().toString();
+        System.out.println(per);
+        int sexo = jcbSexo.getSelectedIndex();
+        switch(sexo){
+            case 0:
+                prolog.consultarHombre(porc, per);
+                jlbResHombre.setText(per);
+                jlbResMujer.setText(prolog.m);
+                break;
+            case 1:
+                prolog.consultarMujer(porc, per);
+                jlbResHombre.setText(prolog.h);
+                jlbResMujer.setText(per);
+                break;
+        }
+        
         jlbResPorcentaje.setText(prolog.p);
     }//GEN-LAST:event_jbtnConsultarActionPerformed
 
@@ -225,15 +265,19 @@ public class Consultas extends javax.swing.JFrame {
     private javax.swing.JButton jbtnAtras;
     private javax.swing.JButton jbtnConsultar;
     private javax.swing.JComboBox<String> jcbPorcentaje;
+    private javax.swing.JComboBox<String> jcbSexo;
     private javax.swing.JLabel jlbDatos;
     private javax.swing.JLabel jlbHombre;
     private javax.swing.JLabel jlbMujer;
     private javax.swing.JLabel jlbP;
+    private javax.swing.JLabel jlbPersona;
     private javax.swing.JLabel jlbPorcentaje;
     private javax.swing.JLabel jlbPorcentajeMax;
     private javax.swing.JLabel jlbResHombre;
     private javax.swing.JLabel jlbResMujer;
     private javax.swing.JLabel jlbResPorcentaje;
+    private javax.swing.JLabel jlbSexo;
     private javax.swing.JLabel jlbTitle;
+    private javax.swing.JTextField jtfPersona;
     // End of variables declaration//GEN-END:variables
 }
