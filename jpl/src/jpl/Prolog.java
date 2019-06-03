@@ -50,11 +50,13 @@ public class Prolog {
         //--------------------------------------------------
         Map<String, Term>[] ss4 = q4.allSolutions();
         System.out.println("all solutions of " + t4);
+        int aux=1;
         for (Map<String, Term> ss41 : ss4) {
             System.out.println("M = " + ss41.get("M"));
-            m += ss41.get("M").toString()+", ";
+            m +=aux+": "+ ss41.get("M").toString()+", \n";
             System.out.println("P = " + ss41.get("P"));
-            p += ss41.get("P").toString()+", ";
+            p +=aux+": "+ ss41.get("P").toString()+", \n";
+            aux++;
         }
     }
 
@@ -68,12 +70,15 @@ public class Prolog {
         //--------------------------------------------------
         Map<String, Term>[] ss4 = q4.allSolutions();
         System.out.println("all solutions of " + t4);
+        int aux=1;
         for (Map<String, Term> ss41 : ss4) {
             System.out.println("H = " + ss41.get("H"));
-            h+= ss41.get("H").toString()+", ";
+            h+=aux+": "+ ss41.get("H").toString()+", \n";
             System.out.println("P = " + ss41.get("P"));
-            p += ss41.get("P").toString()+", ";
+            p +=aux+": "+ ss41.get("P").toString()+", \n";
+            aux++;
         }
+        
     }
 
     public void guardaPersonas(String sexo, String nombre) {
