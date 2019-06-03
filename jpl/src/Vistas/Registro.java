@@ -71,7 +71,7 @@ public class Registro extends javax.swing.JFrame {
         jlbTitle = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Tinder Para Jotos - Registro");
+        setTitle("Tinder Chafa - Registro");
         setPreferredSize(new java.awt.Dimension(960, 640));
         setResizable(false);
 

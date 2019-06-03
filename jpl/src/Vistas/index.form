@@ -3,7 +3,7 @@
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
-    <Property name="title" type="java.lang.String" value="Tinder Para Jotos - Menu"/>
+    <Property name="title" type="java.lang.String" value="Tinder Chafa - Menu"/>
     <Property name="name" type="java.lang.String" value="Tinder" noResource="true"/>
     <Property name="resizable" type="boolean" value="false"/>
   </Properties>
@@ -77,7 +77,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="18" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Tinder De Jotos"/>
+        <Property name="text" type="java.lang.String" value="Tinder Chafa"/>
       </Properties>
     </Component>
   </SubComponents>

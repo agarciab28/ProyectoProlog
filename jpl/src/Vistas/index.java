@@ -42,7 +42,7 @@ public class index extends javax.swing.JFrame {
         jlbTitle = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Tinder Para Jotos - Menu");
+        setTitle("Tinder Chafa - Menu");
         setName("Tinder"); // NOI18N
         setResizable(false);
 
@@ -61,7 +61,7 @@ public class index extends javax.swing.JFrame {
         });
 
         jlbTitle.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jlbTitle.setText("Tinder De Jotos");
+        jlbTitle.setText("Tinder Chafa");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
