@@ -20,8 +20,6 @@ mujer(karla).
 mujer(stephanie).
 mujer(susana).
 
-hola:-write('Hola Mundo').
-
 gustos(alejandro_fernandez,[cantar,actuar,orden,deporte,caballos,catolica,alcohol]).
 gustos(takeshi,[tae_kwan_do,musica,comics,videojuegos]).
 gustos(black_widow,[tae_kwan_do,musica,comics,videojuegos]).
@@ -63,4 +61,10 @@ pareja(H,M,Porcentaje,Porc_matching):-hombre(H),mujer(M),
 
 mujer(scarlett).
 hombre(benito_juarez).
-mujer(petrushca). 
+mujer(petrushca).  
+hombre(prueba). 
+hombre(alejandrog). 
+
+gustos(alejandrog,[asdfas,asd,asdf]).
+musica(alejandrog,[sadf,asdfa]).
+comida(alejandrog,[asdfa,erwef]).

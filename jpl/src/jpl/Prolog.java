@@ -83,7 +83,7 @@ public class Prolog {
             BufferedWriter bfwriter = new BufferedWriter(flwriter);
 
             if (sexo.equals("Hombre")) {
-                bfwriter.write("hombre(" + nombre + "). \n");
+                bfwriter.write("\nhombre(" + nombre + "). \n");
             } else {
                 bfwriter.write("\nmujer(" + nombre + "). \n");
             }
