@@ -4,7 +4,6 @@
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
     <Property name="title" type="java.lang.String" value="Tinder Chafa - Consultas"/>
-    <Property name="resizable" type="boolean" value="false"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -178,7 +177,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jlbPorcentajeMax">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Porcentaje Maximo de Match:"/>
+        <Property name="text" type="java.lang.String" value="Porcentaje Minimo de Match:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="jcbPorcentaje">

@@ -41,6 +41,9 @@ public class Prolog {
     }
 
     public void consultarHombre(String porcentaje, String H) {
+        p="";
+        h="";
+        m="";
         String t1 = "consult('matching.pl')";
         Query q1 = new Query(t1);
         System.out.println(t1 + " " + (q1.hasSolution() ? "succeeded" : "failed"));
@@ -61,6 +64,9 @@ public class Prolog {
     }
 
     public void consultarMujer(String porcentaje, String M) {
+        p="";
+        h="";
+        m="";
         String t1 = "consult('matching.pl')";
         Query q1 = new Query(t1);
         System.out.println(t1 + " " + (q1.hasSolution() ? "succeeded" : "failed"));

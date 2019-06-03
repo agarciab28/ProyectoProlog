@@ -59,7 +59,6 @@ public class Consultas extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Tinder Chafa - Consultas");
-        setResizable(false);
 
         jbtnAtras.setText("Atrás");
         jbtnAtras.addActionListener(new java.awt.event.ActionListener() {
@@ -81,7 +80,7 @@ public class Consultas extends javax.swing.JFrame {
             }
         });
 
-        jlbPorcentajeMax.setText("Porcentaje Maximo de Match:");
+        jlbPorcentajeMax.setText("Porcentaje Minimo de Match:");
 
         jcbPorcentaje.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "10", "20", "30", "40", "50", "60", "70", "80", "90", "100" }));
 
@@ -205,6 +204,9 @@ public class Consultas extends javax.swing.JFrame {
     }//GEN-LAST:event_jbtnAtrasActionPerformed
 
     private void jbtnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnConsultarActionPerformed
+        jlbResHombre.setText("");
+        jlbResMujer.setText("");
+        jlbResPorcentaje.setText("");
         String porc = jcbPorcentaje.getSelectedItem().toString();
         String per = jtfPersona.getText();
         System.out.println(per);
