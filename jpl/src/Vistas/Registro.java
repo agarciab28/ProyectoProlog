@@ -5,6 +5,9 @@
  */
 package Vistas;
 
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.DefaultListModel;
 import jpl.Prolog;
 
 /**
@@ -18,7 +21,7 @@ public class Registro extends javax.swing.JFrame {
      */
     
     Prolog prolog;
-    public String nombre, gusto, musica, comida;
+    public String nombre, gusto, musica, comida, listaGustos = "", listaComida = "", listaMusica = "";
     
     public Registro() {
         initComponents();
@@ -68,7 +71,7 @@ public class Registro extends javax.swing.JFrame {
         jlbTitle = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Tinder Para Jotos - Registro");
+        setTitle("Tinder Chafa - Registro");
         setPreferredSize(new java.awt.Dimension(960, 640));
         setResizable(false);
 
@@ -85,6 +88,11 @@ public class Registro extends javax.swing.JFrame {
 
         jbtnGusto.setText("+");
         jbtnGusto.setEnabled(false);
+        jbtnGusto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtnGustoActionPerformed(evt);
+            }
+        });
 
         jbtnNombre.setText("+");
         jbtnNombre.addActionListener(new java.awt.event.ActionListener() {
@@ -97,23 +105,41 @@ public class Registro extends javax.swing.JFrame {
 
         jbtnMusica.setText("+");
         jbtnMusica.setEnabled(false);
+        jbtnMusica.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtnMusicaActionPerformed(evt);
+            }
+        });
 
         jlbAddComida.setText("Agregar Comida");
 
         jbtnComida.setText("+");
         jbtnComida.setEnabled(false);
+        jbtnComida.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtnComidaActionPerformed(evt);
+            }
+        });
 
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
         jSeparator2.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
+        jlistMusica.setModel(new DefaultListModel ());
         jScrollPane1.setViewportView(jlistMusica);
 
+        jlistComida.setModel(new DefaultListModel ());
         jScrollPane2.setViewportView(jlistComida);
 
+        jlistGustos.setModel(new DefaultListModel ());
         jScrollPane3.setViewportView(jlistGustos);
 
         jbtnGuardar.setText("Guardar");
+        jbtnGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtnGuardarActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("Gustos:");
 
@@ -265,9 +291,45 @@ public class Registro extends javax.swing.JFrame {
         jbtnGusto.setEnabled(true);
         jbtnMusica.setEnabled(true);
         jbtnComida.setEnabled(true);
-        //prolog.guardaPersonas(jcbSexo.getSelectedItem().toString(), jtfNombre.getText());
-        prolog.getGustos(jtfNombre.getText());
+        jbtnNombre.setEnabled(false);
+        jtfNombre.setEnabled(false);
+        nombre = jtfNombre.getText();
+        prolog.guardaPersonas(jcbSexo.getSelectedItem().toString(), nombre);
+        //prolog.getGustos(jtfNombre.getText());
     }//GEN-LAST:event_jbtnNombreActionPerformed
+
+    private void jbtnGustoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnGustoActionPerformed
+        String gusto = jtfGusto.getText();
+        jtfGusto.setText("");
+        DefaultListModel lmg  = (DefaultListModel) jlistGustos.getModel();
+        lmg.addElement(gusto);
+        listaGustos = listaGustos + gusto + ",";
+    }//GEN-LAST:event_jbtnGustoActionPerformed
+
+    private void jbtnMusicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnMusicaActionPerformed
+        String musica = jtfMusica.getText();
+        jtfMusica.setText("");
+        DefaultListModel lmm  = (DefaultListModel) jlistMusica.getModel();
+        lmm.addElement(musica);
+        listaMusica = listaMusica + musica + ",";
+    }//GEN-LAST:event_jbtnMusicaActionPerformed
+
+    private void jbtnComidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnComidaActionPerformed
+        String comida = jtfComida.getText();
+        jtfComida.setText("");
+        DefaultListModel lmc  = (DefaultListModel) jlistComida.getModel();
+        lmc.addElement(comida);
+        listaComida = listaComida + comida + ",";
+    }//GEN-LAST:event_jbtnComidaActionPerformed
+
+    private void jbtnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnGuardarActionPerformed
+        listaGustos = listaGustos.substring(0,listaGustos.length() - 1);
+        listaMusica = listaMusica.substring(0,listaMusica.length() - 1);
+        listaComida = listaComida.substring(0,listaComida.length() - 1);
+        prolog.guardaGustos(nombre, listaGustos);
+        prolog.guardaMusica(nombre, listaMusica);
+        prolog.guardaComida(nombre, listaComida);
+    }//GEN-LAST:event_jbtnGuardarActionPerformed
     
     
     /**

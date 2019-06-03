@@ -58,7 +58,7 @@ public class Consultas extends javax.swing.JFrame {
         jtfPersona = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Tinder Para Jotos - Consultas");
+        setTitle("Tinder Chafa - Consultas");
         setResizable(false);
 
         jbtnAtras.setText("Atrás");
