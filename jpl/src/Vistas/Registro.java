@@ -265,8 +265,11 @@ public class Registro extends javax.swing.JFrame {
         jbtnGusto.setEnabled(true);
         jbtnMusica.setEnabled(true);
         jbtnComida.setEnabled(true);
+        //prolog.guardaPersonas(jcbSexo.getSelectedItem().toString(), jtfNombre.getText());
+        prolog.getGustos(jtfNombre.getText());
     }//GEN-LAST:event_jbtnNombreActionPerformed
-
+    
+    
     /**
      * @param args the command line arguments
      */

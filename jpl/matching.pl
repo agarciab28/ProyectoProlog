@@ -49,3 +49,7 @@ pareja(H,M,Porcentaje,Porc_matching):-hombre(H),mujer(M),
                         Porc_matching>=Porcentaje.
 
 
+
+mujer(scarlett).
+hombre(benito_juarez).
+mujer(petrushca). 
