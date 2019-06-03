@@ -52,15 +52,15 @@ co([X|T],L2,C):-not(member(X,L2)),co(T,L2,C2),C is C2.
 pareja(H,M,Porcentaje,Porc_matching):-hombre(H),mujer(M),
                         gustos(H,Gh),gustos(M,Gm),
 			musica(H,Mh),musica(M,Mm),
-                        co(Gh,Gm,C),     
+			comida(H,Ch),comida(M,Cm),
+			co(Gh,Gm,C),
+			co(Mh,Mm,C2),
+                        co(Ch,Cm,C3),     
+			Coincidencias is C + C2 + C3,
                         largo(Gh,L1),largo(Gm,L2),
-                        GAmbos is L1 + L2, 
+			largo(Mh,L3),largo(Mm,L4),
+			largo(Ch,L5),largo(Cm,L6),
+                        GAmbos is L1 + L2 + L3 + L4 + L5 + L6, 
                         Prom is GAmbos / 2,
-                        Porc_matching is ((C/Prom)*100),
+                        Porc_matching is ((Coincidencias/Prom)*100),
                         Porc_matching>=Porcentaje.
-
-
-
-mujer(scarlett).
-hombre(benito_juarez).
-mujer(petrushca). 

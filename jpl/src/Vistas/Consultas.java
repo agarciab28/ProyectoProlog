@@ -206,7 +206,7 @@ public class Consultas extends javax.swing.JFrame {
 
     private void jbtnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnConsultarActionPerformed
         String porc = jcbPorcentaje.getSelectedItem().toString();
-        String per = jtfPersona.getText().toString();
+        String per = jtfPersona.getText();
         System.out.println(per);
         int sexo = jcbSexo.getSelectedIndex();
         switch(sexo){
