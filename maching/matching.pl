@@ -28,6 +28,16 @@ gustos(black_widow,[tae_kwan_do,musica,comics,videojuegos]).
 gustos(samy,[desorden,espontaneo,playa,opinar,tortas,idiomas,catolica]).
 gustos(erendira,[orden,limpieza,respeto,estudio,seriedad,cocinar,catolica,deporte]).
 
+musica(alejandro_fernandez,[mariachi,banda,corridos]).
+musica(takeshi,[rock,metal,mariachi,cumbias]).
+musica(black_widow,[rock,metal,mariachi,cumbias]).
+musica(erendira,[mariachi,banda,corridos]).
+
+comida(alejandro_fernandez,[tacos,pozole,atole,tamales]).
+comida(takeshi,[tacos,asada,enchiladas]).
+comida(black_widow,[tacos,asada,enchiladas]).
+comida(erendira,[tacos,pozole,atole,tamales]).
+
 largo([],0).
 largo([H|T],N):-largo(T,N0), N is N0 + 1.
 
@@ -41,6 +51,7 @@ co([X|T],L2,C):-not(member(X,L2)),co(T,L2,C2),C is C2.
 
 pareja(H,M,Porcentaje,Porc_matching):-hombre(H),mujer(M),
                         gustos(H,Gh),gustos(M,Gm),
+			musica(H,Mh),musica(M,Mm),
                         co(Gh,Gm,C),     
                         largo(Gh,L1),largo(Gm,L2),
                         GAmbos is L1 + L2, 
